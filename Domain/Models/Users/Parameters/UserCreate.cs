@@ -1,6 +1,6 @@
 ﻿using Domain.Enums;
 
-namespace Domain.Entities.Users.Parameters;
+namespace Domain.Models.Users.Parameters;
 
 public record UserCreate(string UserName,
                          string Password,

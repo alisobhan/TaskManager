@@ -1,8 +1,8 @@
 ﻿using Domain.Common;
-using Domain.Entities.Users.Parameters;
 using Domain.Enums;
+using Domain.Models.Users.Parameters;
 
-namespace Domain.Entities.Users;
+namespace Domain.Models.Users;
 
 public class User : BaseAuditableEntity
 {
@@ -13,13 +13,13 @@ public class User : BaseAuditableEntity
     public Position Position { get; private set; }
     public int Points { get; private set; }
 
-    public User(UserCreate command)
+    public User(UserCreate user)
     {
-        UserName = command.UserName;
-        UserEmail = command.Email;
-        FirstName = command.FirstName;
-        LastName = command.LastName;
-        Position = command.Position;
+        UserName = user.UserName;
+        UserEmail = user.Email;
+        FirstName = user.FirstName;
+        LastName = user.LastName;
+        Position = user.Position;
         Points = 0;
     }
 }
