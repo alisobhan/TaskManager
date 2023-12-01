@@ -6,7 +6,7 @@ using Infrastructure.Repository.Contracts.GenericRepository;
 
 namespace Infrastructure.Repository;
 
-public class DutyRepository /*: IDutyRepository<Duty>*/
+public class DutyRepository : IDutyRepository<Duty>
 {
     private readonly ApplicationDbContext _applicationDbContext;
     public DutyRepository(ApplicationDbContext applicationDbContext)
@@ -14,5 +14,13 @@ public class DutyRepository /*: IDutyRepository<Duty>*/
         _applicationDbContext = applicationDbContext;
     }
 
-    
+    public async Task<Duty> SetTaskAsync(SetDutyCommand command)
+    {
+        var myValue = _applicationDbContext.Duties.FirstOrDefault(c => c.Title == command.Title);
+    }
+
+    public Task<Duty> SetTaskStatusAsync(SetTaskStatusCommand command)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -1,9 +1,18 @@
+using Domain.Models.Duties;
 using Infrastructure.Data.Servers;
 using Infrastructure.Repository;
 using Infrastructure.Repository.Contracts.EntityReposiories;
+using TaskManager.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.Services.AddScoped<>();
+
+#region DependecyInjectionServices 
+
+builder.Services.AddScoped<IDutyRepository<Duty>, DutyRepository>();
+
+#endregion
+
+
 
 var app = builder.Build();
 
